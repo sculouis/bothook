@@ -1,4 +1,4 @@
-from flask import Flask, request, abort
+from flask import Flask, request, abort,render_template
 import os
 import configparser
 
@@ -26,7 +26,7 @@ handler = WebhookHandler(secret)
 
 @app.route("/")
 def hello_world():
-    return "hello world"
+    return render_template("index.html") 
 
 @app.route("/callback", methods=['POST'])
 def callback():
